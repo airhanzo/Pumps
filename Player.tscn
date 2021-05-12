@@ -1,0 +1,83 @@
+[gd_scene load_steps=42 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://SpritesP/Pumpkins/Run (3).png" type="Texture" id=2]
+[ext_resource path="res://SpritesP/Pumpkins/Run (4).png" type="Texture" id=3]
+[ext_resource path="res://SpritesP/Pumpkins/Run (8).png" type="Texture" id=4]
+[ext_resource path="res://SpritesP/Pumpkins/Walk (1).png" type="Texture" id=5]
+[ext_resource path="res://SpritesP/Pumpkins/Run (1).png" type="Texture" id=6]
+[ext_resource path="res://SpritesP/Pumpkins/Jump (3).png" type="Texture" id=7]
+[ext_resource path="res://SpritesP/Pumpkins/Jump (8).png" type="Texture" id=8]
+[ext_resource path="res://SpritesP/Pumpkins/Walk (8).png" type="Texture" id=9]
+[ext_resource path="res://SpritesP/Pumpkins/Run (5).png" type="Texture" id=10]
+[ext_resource path="res://SpritesP/Pumpkins/Walk (4).png" type="Texture" id=11]
+[ext_resource path="res://SpritesP/Pumpkins/Run (6).png" type="Texture" id=12]
+[ext_resource path="res://SpritesP/Pumpkins/Walk (9).png" type="Texture" id=13]
+[ext_resource path="res://SpritesP/Pumpkins/Run (7).png" type="Texture" id=14]
+[ext_resource path="res://SpritesP/Pumpkins/Walk (7).png" type="Texture" id=15]
+[ext_resource path="res://SpritesP/Pumpkins/Walk (5).png" type="Texture" id=16]
+[ext_resource path="res://SpritesP/Pumpkins/Jump (5).png" type="Texture" id=17]
+[ext_resource path="res://SpritesP/Pumpkins/Walk (6).png" type="Texture" id=18]
+[ext_resource path="res://SpritesP/Pumpkins/Jump (4).png" type="Texture" id=19]
+[ext_resource path="res://SpritesP/Pumpkins/Walk (10).png" type="Texture" id=20]
+[ext_resource path="res://SpritesP/Pumpkins/Walk (2).png" type="Texture" id=21]
+[ext_resource path="res://SpritesP/Pumpkins/Walk (3).png" type="Texture" id=22]
+[ext_resource path="res://SpritesP/Pumpkins/Jump (2).png" type="Texture" id=23]
+[ext_resource path="res://SpritesP/Pumpkins/Jump (7).png" type="Texture" id=24]
+[ext_resource path="res://SpritesP/Pumpkins/Jump (9).png" type="Texture" id=25]
+[ext_resource path="res://SpritesP/Pumpkins/Jump (10).png" type="Texture" id=26]
+[ext_resource path="res://SpritesP/Pumpkins/Jump (6).png" type="Texture" id=27]
+[ext_resource path="res://SpritesP/Pumpkins/Run (2).png" type="Texture" id=28]
+[ext_resource path="res://SpritesP/Pumpkins/Jump (1).png" type="Texture" id=29]
+[ext_resource path="res://SpritesP/Pumpkins/Idle (1).png" type="Texture" id=30]
+[ext_resource path="res://SpritesP/Pumpkins/Idle (2).png" type="Texture" id=31]
+[ext_resource path="res://SpritesP/Pumpkins/Idle (3).png" type="Texture" id=32]
+[ext_resource path="res://SpritesP/Pumpkins/Idle (8).png" type="Texture" id=33]
+[ext_resource path="res://SpritesP/Pumpkins/Idle (10).png" type="Texture" id=34]
+[ext_resource path="res://SpritesP/Pumpkins/Idle (9).png" type="Texture" id=35]
+[ext_resource path="res://SpritesP/Pumpkins/Idle (7).png" type="Texture" id=36]
+[ext_resource path="res://SpritesP/Pumpkins/Idle (6).png" type="Texture" id=37]
+[ext_resource path="res://SpritesP/Pumpkins/Idle (4).png" type="Texture" id=38]
+[ext_resource path="res://SpritesP/Pumpkins/Idle (5).png" type="Texture" id=39]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 245.001, 85.7431 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 11 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 7 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 27 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 8 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 37 ), ExtResource( 36 ), ExtResource( 33 ), ExtResource( 35 ), ExtResource( 34 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 28 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+} ]
+
+[node name="Player" type="KinematicBody2D"]
+scale = Vector2( 0.279999, 1 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 0.714285, 0.991333 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.714284, 0.239999 )
+frames = SubResource( 2 )
+animation = "Idle"
+frame = 5
+speed_scale = 3.0
+playing = true
